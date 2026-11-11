@@ -1,0 +1,12 @@
+{
+  "name": "VMT",
+  "short_name": "VMT",
+  "description": "Personal income, expense, calendar and budget tracker",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080d1d",
+  "theme_color": "#101b3c",
+  "orientation": "portrait",
+  "icons": []
+}

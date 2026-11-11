@@ -1,0 +1,19 @@
+{
+  "name": "vmt-personal-finance",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VMT phone-first personal finance tracker",
+  "scripts": {
+    "android:add": "npx cap add android",
+    "sync": "npx cap sync android",
+    "open:android": "npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3",
+    "typescript": "~5.8.3"
+  }
+}

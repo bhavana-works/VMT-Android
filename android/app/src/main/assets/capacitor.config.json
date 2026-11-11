@@ -1,0 +1,6 @@
+{
+	"appId": "com.vmt.personalfinance",
+	"appName": "VMT",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

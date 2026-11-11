@@ -1,0 +1,25 @@
+node_modules/
+
+.env
+.env.*
+
+# Android generated/local files
+android/.gradle/
+android/.idea/
+android/**/build/
+android/local.properties
+
+# Android signing files
+*.jks
+*.keystore
+
+# Personal/financial data
+www/EXPORT-OLD-DATA.txt
+*.csv
+*.db
+*.sqlite
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db

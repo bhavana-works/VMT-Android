@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">VMT</string>
+    <string name="title_activity_main">VMT</string>
+    <string name="package_name">com.vmt.personalfinance</string>
+    <string name="custom_url_scheme">com.vmt.personalfinance</string>
+</resources>

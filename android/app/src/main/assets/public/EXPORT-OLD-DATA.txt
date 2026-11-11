@@ -1,0 +1,40 @@
+EXPORT DATA FROM THE ORIGINAL MY MONEY TRACKER
+
+Use this only in the browser tab where the ORIGINAL My Money Tracker.html is open and showing your saved entries.
+
+1. Open the old tracker in Chrome/Edge.
+2. Press F12 (or Ctrl+Shift+J) to open Developer Tools.
+3. Open the Console tab.
+4. Paste the code below and press Enter.
+5. It downloads my-money-tracker-backup.json.
+6. Open the new VMT app → Settings → Import legacy JSON backup and choose that file.
+7. Compare transaction counts and monthly totals before relying on the new app. Keep the old file and backup.
+
+CODE TO PASTE INTO THE OLD TRACKER'S CONSOLE:
+
+(() => {
+  const get = (key) => {
+    try { return JSON.parse(localStorage.getItem(key) || '[]'); }
+    catch { return []; }
+  };
+  const income = get('myMoneyTracker.income.v5').length
+    ? get('myMoneyTracker.income.v5') : get('myMoneyTracker.income.v4');
+  const expense = get('myMoneyTracker.expense.v5').length
+    ? get('myMoneyTracker.expense.v5') : get('myMoneyTracker.expense.v4');
+  const payload = {
+    app: 'My Money Tracker legacy export',
+    exportedAt: new Date().toISOString(),
+    income,
+    expense
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'my-money-tracker-backup.json';
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  console.log(`Exported ${income.length} income and ${expense.length} expense records.`);
+})();
+
+SAFETY: This snippet only reads the old tracker's income/expense localStorage keys and downloads a JSON file. It does not delete or modify the old data. Keep the JSON backup private because it contains personal financial information.
